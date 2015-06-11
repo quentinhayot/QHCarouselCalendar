@@ -1,0 +1,516 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1CDC7EFB85F1503AC646E160 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FBCEA2FCB04FA06E19EC41F4 /* libPods.a */; };
+		EC4927951B2985F3007477B5 /* QHCarouselCalendar.m in Sources */ = {isa = PBXBuildFile; fileRef = EC4927941B2985F3007477B5 /* QHCarouselCalendar.m */; };
+		EC4927991B29CD75007477B5 /* QHCarouselCalendarDayView.m in Sources */ = {isa = PBXBuildFile; fileRef = EC4927981B29CD75007477B5 /* QHCarouselCalendarDayView.m */; };
+		ECB702CF1B2980FB006D8872 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = ECB702CE1B2980FB006D8872 /* main.m */; };
+		ECB702D21B2980FB006D8872 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = ECB702D11B2980FB006D8872 /* AppDelegate.m */; };
+		ECB702D51B2980FB006D8872 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECB702D41B2980FB006D8872 /* ViewController.m */; };
+		ECB702D81B2980FB006D8872 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECB702D61B2980FB006D8872 /* Main.storyboard */; };
+		ECB702DA1B2980FB006D8872 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ECB702D91B2980FB006D8872 /* Images.xcassets */; };
+		ECB702DD1B2980FB006D8872 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECB702DB1B2980FB006D8872 /* LaunchScreen.xib */; };
+		ECB702E91B2980FB006D8872 /* QHCarouselCalendarTests.m in Sources */ = {isa = PBXBuildFile; fileRef = ECB702E81B2980FB006D8872 /* QHCarouselCalendarTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		ECB702E31B2980FB006D8872 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ECB702C11B2980FB006D8872 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = ECB702C81B2980FB006D8872;
+			remoteInfo = QHCarouselCalendar;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		3CAC31A970D5CE1A21A0FC0C /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		BE2D2EF9043852C88266AE5F /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		EC4927931B2985F3007477B5 /* QHCarouselCalendar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QHCarouselCalendar.h; path = QHCarouselCalendar/QHCarouselCalendar.h; sourceTree = "<group>"; };
+		EC4927941B2985F3007477B5 /* QHCarouselCalendar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QHCarouselCalendar.m; path = QHCarouselCalendar/QHCarouselCalendar.m; sourceTree = "<group>"; };
+		EC4927971B29CD75007477B5 /* QHCarouselCalendarDayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QHCarouselCalendarDayView.h; sourceTree = "<group>"; };
+		EC4927981B29CD75007477B5 /* QHCarouselCalendarDayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QHCarouselCalendarDayView.m; sourceTree = "<group>"; };
+		ECB702C91B2980FB006D8872 /* QHCarouselCalendar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QHCarouselCalendar.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		ECB702CD1B2980FB006D8872 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ECB702CE1B2980FB006D8872 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		ECB702D01B2980FB006D8872 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		ECB702D11B2980FB006D8872 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		ECB702D31B2980FB006D8872 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		ECB702D41B2980FB006D8872 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		ECB702D71B2980FB006D8872 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		ECB702D91B2980FB006D8872 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		ECB702DC1B2980FB006D8872 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		ECB702E21B2980FB006D8872 /* QHCarouselCalendarTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QHCarouselCalendarTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		ECB702E71B2980FB006D8872 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ECB702E81B2980FB006D8872 /* QHCarouselCalendarTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QHCarouselCalendarTests.m; sourceTree = "<group>"; };
+		FBCEA2FCB04FA06E19EC41F4 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		ECB702C61B2980FB006D8872 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1CDC7EFB85F1503AC646E160 /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ECB702DF1B2980FB006D8872 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		50A97BF44AB365EB5F6E67B8 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				BE2D2EF9043852C88266AE5F /* Pods.debug.xcconfig */,
+				3CAC31A970D5CE1A21A0FC0C /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		EC4927961B298602007477B5 /* QHCarouselCalendar */ = {
+			isa = PBXGroup;
+			children = (
+				EC4927931B2985F3007477B5 /* QHCarouselCalendar.h */,
+				EC4927941B2985F3007477B5 /* QHCarouselCalendar.m */,
+				EC4927971B29CD75007477B5 /* QHCarouselCalendarDayView.h */,
+				EC4927981B29CD75007477B5 /* QHCarouselCalendarDayView.m */,
+			);
+			name = QHCarouselCalendar;
+			sourceTree = "<group>";
+		};
+		ECB702C01B2980FB006D8872 = {
+			isa = PBXGroup;
+			children = (
+				ECB702CB1B2980FB006D8872 /* QHCarouselCalendar */,
+				ECB702E51B2980FB006D8872 /* QHCarouselCalendarTests */,
+				ECB702CA1B2980FB006D8872 /* Products */,
+				50A97BF44AB365EB5F6E67B8 /* Pods */,
+				F76828B720650FCBB72D3B01 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		ECB702CA1B2980FB006D8872 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				ECB702C91B2980FB006D8872 /* QHCarouselCalendar.app */,
+				ECB702E21B2980FB006D8872 /* QHCarouselCalendarTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		ECB702CB1B2980FB006D8872 /* QHCarouselCalendar */ = {
+			isa = PBXGroup;
+			children = (
+				EC4927961B298602007477B5 /* QHCarouselCalendar */,
+				ECB702D01B2980FB006D8872 /* AppDelegate.h */,
+				ECB702D11B2980FB006D8872 /* AppDelegate.m */,
+				ECB702D31B2980FB006D8872 /* ViewController.h */,
+				ECB702D41B2980FB006D8872 /* ViewController.m */,
+				ECB702D61B2980FB006D8872 /* Main.storyboard */,
+				ECB702D91B2980FB006D8872 /* Images.xcassets */,
+				ECB702DB1B2980FB006D8872 /* LaunchScreen.xib */,
+				ECB702CC1B2980FB006D8872 /* Supporting Files */,
+			);
+			path = QHCarouselCalendar;
+			sourceTree = "<group>";
+		};
+		ECB702CC1B2980FB006D8872 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				ECB702CD1B2980FB006D8872 /* Info.plist */,
+				ECB702CE1B2980FB006D8872 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		ECB702E51B2980FB006D8872 /* QHCarouselCalendarTests */ = {
+			isa = PBXGroup;
+			children = (
+				ECB702E81B2980FB006D8872 /* QHCarouselCalendarTests.m */,
+				ECB702E61B2980FB006D8872 /* Supporting Files */,
+			);
+			path = QHCarouselCalendarTests;
+			sourceTree = "<group>";
+		};
+		ECB702E61B2980FB006D8872 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				ECB702E71B2980FB006D8872 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F76828B720650FCBB72D3B01 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FBCEA2FCB04FA06E19EC41F4 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		ECB702C81B2980FB006D8872 /* QHCarouselCalendar */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ECB702EC1B2980FB006D8872 /* Build configuration list for PBXNativeTarget "QHCarouselCalendar" */;
+			buildPhases = (
+				B2C12C77D85AB71FDE73A869 /* Check Pods Manifest.lock */,
+				ECB702C51B2980FB006D8872 /* Sources */,
+				ECB702C61B2980FB006D8872 /* Frameworks */,
+				ECB702C71B2980FB006D8872 /* Resources */,
+				9EB0EDE35E0D74202B76DE54 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = QHCarouselCalendar;
+			productName = QHCarouselCalendar;
+			productReference = ECB702C91B2980FB006D8872 /* QHCarouselCalendar.app */;
+			productType = "com.apple.product-type.application";
+		};
+		ECB702E11B2980FB006D8872 /* QHCarouselCalendarTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ECB702EF1B2980FB006D8872 /* Build configuration list for PBXNativeTarget "QHCarouselCalendarTests" */;
+			buildPhases = (
+				ECB702DE1B2980FB006D8872 /* Sources */,
+				ECB702DF1B2980FB006D8872 /* Frameworks */,
+				ECB702E01B2980FB006D8872 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				ECB702E41B2980FB006D8872 /* PBXTargetDependency */,
+			);
+			name = QHCarouselCalendarTests;
+			productName = QHCarouselCalendarTests;
+			productReference = ECB702E21B2980FB006D8872 /* QHCarouselCalendarTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		ECB702C11B2980FB006D8872 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0630;
+				ORGANIZATIONNAME = example;
+				TargetAttributes = {
+					ECB702C81B2980FB006D8872 = {
+						CreatedOnToolsVersion = 6.3.2;
+					};
+					ECB702E11B2980FB006D8872 = {
+						CreatedOnToolsVersion = 6.3.2;
+						TestTargetID = ECB702C81B2980FB006D8872;
+					};
+				};
+			};
+			buildConfigurationList = ECB702C41B2980FB006D8872 /* Build configuration list for PBXProject "QHCarouselCalendar" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = ECB702C01B2980FB006D8872;
+			productRefGroup = ECB702CA1B2980FB006D8872 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				ECB702C81B2980FB006D8872 /* QHCarouselCalendar */,
+				ECB702E11B2980FB006D8872 /* QHCarouselCalendarTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		ECB702C71B2980FB006D8872 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ECB702D81B2980FB006D8872 /* Main.storyboard in Resources */,
+				ECB702DD1B2980FB006D8872 /* LaunchScreen.xib in Resources */,
+				ECB702DA1B2980FB006D8872 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ECB702E01B2980FB006D8872 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		9EB0EDE35E0D74202B76DE54 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B2C12C77D85AB71FDE73A869 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		ECB702C51B2980FB006D8872 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EC4927951B2985F3007477B5 /* QHCarouselCalendar.m in Sources */,
+				ECB702D51B2980FB006D8872 /* ViewController.m in Sources */,
+				ECB702D21B2980FB006D8872 /* AppDelegate.m in Sources */,
+				EC4927991B29CD75007477B5 /* QHCarouselCalendarDayView.m in Sources */,
+				ECB702CF1B2980FB006D8872 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ECB702DE1B2980FB006D8872 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ECB702E91B2980FB006D8872 /* QHCarouselCalendarTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		ECB702E41B2980FB006D8872 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = ECB702C81B2980FB006D8872 /* QHCarouselCalendar */;
+			targetProxy = ECB702E31B2980FB006D8872 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		ECB702D61B2980FB006D8872 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ECB702D71B2980FB006D8872 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		ECB702DB1B2980FB006D8872 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ECB702DC1B2980FB006D8872 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		ECB702EA1B2980FB006D8872 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		ECB702EB1B2980FB006D8872 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		ECB702ED1B2980FB006D8872 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BE2D2EF9043852C88266AE5F /* Pods.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = QHCarouselCalendar/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		ECB702EE1B2980FB006D8872 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3CAC31A970D5CE1A21A0FC0C /* Pods.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = QHCarouselCalendar/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		ECB702F01B2980FB006D8872 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = QHCarouselCalendarTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/QHCarouselCalendar.app/QHCarouselCalendar";
+			};
+			name = Debug;
+		};
+		ECB702F11B2980FB006D8872 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = QHCarouselCalendarTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/QHCarouselCalendar.app/QHCarouselCalendar";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		ECB702C41B2980FB006D8872 /* Build configuration list for PBXProject "QHCarouselCalendar" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ECB702EA1B2980FB006D8872 /* Debug */,
+				ECB702EB1B2980FB006D8872 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ECB702EC1B2980FB006D8872 /* Build configuration list for PBXNativeTarget "QHCarouselCalendar" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ECB702ED1B2980FB006D8872 /* Debug */,
+				ECB702EE1B2980FB006D8872 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ECB702EF1B2980FB006D8872 /* Build configuration list for PBXNativeTarget "QHCarouselCalendarTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ECB702F01B2980FB006D8872 /* Debug */,
+				ECB702F11B2980FB006D8872 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = ECB702C11B2980FB006D8872 /* Project object */;
+}
