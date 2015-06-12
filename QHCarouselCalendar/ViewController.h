@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "QHCarouselCalendar.h"
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController <QHCarouselCalendarDataSource, QHCarouselCalendarDelegate>
 
+@property (strong, nonatomic)QHCarouselCalendar *calendar;
 
 @end
 

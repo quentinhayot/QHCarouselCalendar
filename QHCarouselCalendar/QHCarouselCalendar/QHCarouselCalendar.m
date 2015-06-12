@@ -9,18 +9,81 @@
 #import "QHCarouselCalendar.h"
 #import "QHCarouselCalendarDayView.h"
 
-#define QHDefaultYearViewHeight 50.0f
-#define QHDefaultMonthViewHeight 50.0f
+#define QHDefaultYearViewHeight 45.0f
+#define QHDefaultMonthViewHeight 45.0f
 #define QHDefaultDayViewHeight 70.0f
 
-@interface QHCarouselCalendar ()
+// Keys for customize the calendar behavior
+//   Background colors
+////   Carousels
+NSString *const QHCarouselCalendarYearCarouselBackgroundColor = @"QHCarouselCalendarYearCarouselBackgroundColor";
+NSString *const QHCarouselCalendarMonthCarouselBackgroundColor = @"QHCarouselCalendarMonthCarouselBackgroundColor";
+NSString *const QHCarouselCalendarDayCarouselBackgroundColor = @"QHCarouselCalendarDayCarouselBackgroundColor";
+NSString *const QHCarouselCalendarContentCarouselBackgroundColor = @"QHCarouselCalendarContentCarouselBackgroundColor";
+////   Day items
+NSString *const QHCarouselCalendarDayItemTodayBackgroundColor = @"QHCarouselCalendarDayItemTodayBackgroundColor";
+NSString *const QHCarouselCalendarDayItemSelectedBackgroundColor = @"QHCarouselCalendarDayItemSelectedBackgroundColor";
+NSString *const QHCarouselCalendarDayItemSpecialBackgroundColor = @"QHCarouselCalendarDayItemSpecialBackgroundColor";
 
+//   Border colors
+NSString *const QHCarouselCalendarDayItemTodayBorderColor = @"QHCarouselCalendarDayItemTodayBorderColor";
+NSString *const QHCarouselCalendarDayItemSelectedBorderColor = @"QHCarouselCalendarDayItemSelectedBorderColor";
+NSString *const QHCarouselCalendarDayItemSpecialBorderColor = @"QHCarouselCalendarDayItemSpecialBorderColor";
+
+//   Fonts
+NSString *const QHCarouselCalendarYearItemFont = @"QHCarouselCalendarYearItemFont";
+NSString *const QHCarouselCalendarMonthItemFont = @"QHCarouselCalendarMonthItemFont";
+NSString *const QHCarouselCalendarDayItemNameFont = @"QHCarouselCalendarDayItemNameFont";
+NSString *const QHCarouselCalendarDayItemNumberFont = @"QHCarouselCalendarDayItemNumberFont";
+
+//   Font colors
+NSString *const QHCarouselCalendarYearItemFontColor = @"QHCarouselCalendarYearItemFontColor";
+NSString *const QHCarouselCalendarMonthItemFontColor = @"QHCarouselCalendarMonthItemFontColor";
+NSString *const QHCarouselCalendarDayItemNameFontColor = @"QHCarouselCalendarDayItemNameFontColor";
+NSString *const QHCarouselCalendarDayItemNumberFontColor = @"QHCarouselCalendarDayItemNumberFontColor";
+
+//   Carousel types
+NSString *const QHCarouselCalendarContentCarouselType = @"QHCarouselCalendarContentCarouselType";
+
+@interface QHCarouselCalendar() <iCarouselDelegate, iCarouselDataSource>
+// Keys for customize the calendar behavior
+//   Background colors
+////   Carousels
+@property (nonatomic, strong) UIColor *yearCarouselBackgroundColor;
+@property (nonatomic, strong) UIColor *monthCarouselBackgroundColor;
+@property (nonatomic, strong) UIColor *dayCarouselBackgroundColor;
+@property (nonatomic, strong) UIColor *contentCarouselBackgroundColor;
+////   Day items
+@property (nonatomic, strong) UIColor *dayItemTodayBackgroundColor;
+@property (nonatomic, strong) UIColor *dayItemSelectedBackgroundColor;
+@property (nonatomic, strong) UIColor *dayItemSpecialBackgroundColor;
+
+//   Border colors
+@property (nonatomic, strong) UIColor *dayItemTodayBorderColor;
+@property (nonatomic, strong) UIColor *dayItemSelectedBorderColor;
+@property (nonatomic, strong) UIColor *dayItemSpecialBorderColor;
+
+//   Fonts
+@property (nonatomic, strong) UIFont *yearItemFont;
+@property (nonatomic, strong) UIFont *monthItemFont;
+@property (nonatomic, strong) UIFont *dayItemNameFont;
+@property (nonatomic, strong) UIFont *dayItemNumberFont;
+
+//   Font colors
+@property (nonatomic, strong) UIColor *yearItemFontColor;
+@property (nonatomic, strong) UIColor *monthItemFontColor;
+@property (nonatomic, strong) UIColor *dayItemNameFontColor;
+@property (nonatomic, strong) UIColor *dayItemNumberFontColor;
+
+//   Carousel types
+@property (nonatomic) iCarouselType contentCarouselType;
 @end
+
 
 @implementation QHCarouselCalendar
 
--(instancetype)init{
-    self = [super init];
+-(instancetype)initWithFrame:(CGRect)frame{
+    self = [super initWithFrame:frame];
     if (self){
         _startDate = [self firstPossibleDate];
         _endDate = [self lastPossibleDate];
@@ -38,26 +101,89 @@
         _dayCarousel = [[iCarousel alloc] initWithFrame:CGRectMake(0, QHDefaultYearViewHeight+QHDefaultMonthViewHeight, self.frame.size.width, QHDefaultDayViewHeight)];
         _dayCarousel.delegate = self;
         _dayCarousel.dataSource = self;
-        _dayCarousel.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.4];
         [self addSubview:_dayCarousel];
         
         _contentCarousel = [[iCarousel alloc] initWithFrame:CGRectMake(0, QHDefaultYearViewHeight+QHDefaultMonthViewHeight+QHDefaultDayViewHeight, self.frame.size.width, self.frame.size.height-(QHDefaultYearViewHeight+QHDefaultMonthViewHeight+QHDefaultDayViewHeight))];
         _contentCarousel.delegate = self;
         _contentCarousel.dataSource = self;
-        _contentCarousel.type = iCarouselTypeCoverFlow2;
-        _contentCarousel.backgroundColor = [UIColor colorWithRed:1.0f green:0 blue:0 alpha:0.4];
+        _contentCarousel.clipsToBounds = YES;
         [self addSubview:_contentCarousel];
         
         self.selectedDate = [NSDate date];
+        [self applyCustomDefaults];
     }
     return self;
+}
+
+#pragma mark - Setters
+
+-(void)setDelegate:(id<QHCarouselCalendarDelegate>)delegate
+{
+    _delegate = delegate;
+    [self applyCustomDefaults];
+}
+
+-(void)setDataSource:(id<QHCarouselCalendarDataSource>)dataSource{
+    _dataSource = dataSource;
+    [_contentCarousel reloadData];
+}
+
+-(void)setYearCarouselBackgroundColor:(UIColor *)yearCarouselBackgroundColor{
+    _yearCarouselBackgroundColor = yearCarouselBackgroundColor;
+    _yearCarousel.backgroundColor = _yearCarouselBackgroundColor;
+}
+
+-(void)setMonthCarouselBackgroundColor:(UIColor *)monthCarouselBackgroundColor{
+    _monthCarouselBackgroundColor = monthCarouselBackgroundColor;
+    _monthCarousel.backgroundColor = _monthCarouselBackgroundColor;
+}
+
+-(void)setDayCarouselBackgroundColor:(UIColor *)dayCarouselBackgroundColor{
+    _dayCarouselBackgroundColor = dayCarouselBackgroundColor;
+    _dayCarousel.backgroundColor = _dayCarouselBackgroundColor;
+}
+
+-(void)applyCustomDefaults
+{
+    NSDictionary *attributes;
+    
+    if ([self.delegate respondsToSelector:@selector(QHCarouselCalendarAttributes)]) {
+        attributes = [self.delegate QHCarouselCalendarAttributes];
+    }
+    
+    self.yearCarouselBackgroundColor = attributes[QHCarouselCalendarYearCarouselBackgroundColor] ? attributes[QHCarouselCalendarYearCarouselBackgroundColor] : [UIColor blackColor];
+    self.monthCarouselBackgroundColor = attributes[QHCarouselCalendarMonthCarouselBackgroundColor] ? attributes[QHCarouselCalendarMonthCarouselBackgroundColor] : [UIColor darkGrayColor];
+    self.dayCarouselBackgroundColor = attributes[QHCarouselCalendarDayCarouselBackgroundColor] ? attributes[QHCarouselCalendarDayCarouselBackgroundColor] : [UIColor lightGrayColor];
+    self.contentCarouselBackgroundColor = attributes[QHCarouselCalendarContentCarouselBackgroundColor] ? attributes[QHCarouselCalendarContentCarouselBackgroundColor] : [UIColor clearColor];
+    
+    self.dayItemTodayBackgroundColor = attributes[QHCarouselCalendarDayItemTodayBackgroundColor] ? attributes[QHCarouselCalendarDayItemTodayBackgroundColor] : [UIColor darkGrayColor];
+    self.dayItemSelectedBackgroundColor = attributes[QHCarouselCalendarDayItemSelectedBackgroundColor] ? attributes[QHCarouselCalendarDayItemSelectedBackgroundColor] : [UIColor redColor];
+    self.dayItemSpecialBackgroundColor = attributes[QHCarouselCalendarDayItemSpecialBackgroundColor] ? attributes[QHCarouselCalendarDayItemSpecialBackgroundColor] : [UIColor clearColor];
+    
+    self.dayItemTodayBorderColor = attributes[QHCarouselCalendarDayItemTodayBorderColor] ? attributes[QHCarouselCalendarDayItemTodayBackgroundColor] : [UIColor clearColor];
+    self.dayItemSelectedBorderColor = attributes[QHCarouselCalendarDayItemSelectedBorderColor] ? attributes[QHCarouselCalendarDayItemSelectedBackgroundColor] : [UIColor clearColor];
+    self.dayItemSpecialBorderColor = attributes[QHCarouselCalendarDayItemSpecialBorderColor] ? attributes[QHCarouselCalendarDayItemSpecialBorderColor] : [UIColor whiteColor];
+    
+    self.yearItemFont = attributes[QHCarouselCalendarYearItemFont] ? attributes[QHCarouselCalendarYearItemFont] : [UIFont systemFontOfSize:20.0f];
+    self.monthItemFont = attributes[QHCarouselCalendarMonthItemFont] ? attributes[QHCarouselCalendarMonthItemFont] : [UIFont systemFontOfSize:20.0f];
+    self.dayItemNameFont = attributes[QHCarouselCalendarDayItemNameFont] ? attributes[QHCarouselCalendarDayItemNameFont] : [UIFont systemFontOfSize:10.0f];
+    self.dayItemNumberFont = attributes[QHCarouselCalendarDayItemNumberFont] ? attributes[QHCarouselCalendarDayItemNumberFont] : [UIFont boldSystemFontOfSize:20.0];
+    
+    self.yearItemFontColor = attributes[QHCarouselCalendarYearItemFontColor] ? attributes[QHCarouselCalendarYearItemFontColor] : [UIColor whiteColor];
+    self.monthItemFontColor = attributes[QHCarouselCalendarMonthItemFontColor] ? attributes[QHCarouselCalendarMonthItemFontColor] : [UIColor whiteColor];
+    self.dayItemNameFontColor = attributes[QHCarouselCalendarDayItemNameFontColor] ? attributes[QHCarouselCalendarDayItemNameFontColor] : [UIColor whiteColor];
+    self.dayItemNumberFontColor = attributes[QHCarouselCalendarDayItemNumberFontColor] ? attributes[QHCarouselCalendarDayItemNumberFontColor] : [UIColor whiteColor];
+    
+    self.contentCarouselType = attributes[QHCarouselCalendarContentCarouselType] ? (iCarouselType)attributes[QHCarouselCalendarContentCarouselType] : iCarouselTypeCoverFlow;
+    _contentCarousel.type = self.contentCarouselType;
+    
+    [self setNeedsDisplay];
 }
 
 -(void)setSelectedDate:(NSDate *)selectedDate{
     if ([selectedDate isEqualToDate:_selectedDate])
         return;
     _selectedDate = selectedDate;
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"QHSelectedDateChanged" object:self userInfo:@{@"date":_selectedDate}];
     [_yearCarousel scrollToItemAtIndex:[self indexOfYearForDate:_selectedDate] duration:0.4];
     
     [_monthCarousel scrollToItemAtIndex:[self indexOfMonthForDate:_selectedDate] duration:0.5];
@@ -90,8 +216,11 @@
     else if (carousel == _monthCarousel){
         return [self viewForMonthAtIndex:index reusingView:view];
     }
-    else if (carousel == _dayCarousel || carousel == _contentCarousel){
+    else if (carousel == _dayCarousel){
         return [self viewForDayAtIndex:index reusingView:view];
+    }
+    else if (carousel == _contentCarousel){
+        return [self viewForContentAtIndex:index reusingView:view];
     }
     return nil;
 }
@@ -102,7 +231,7 @@
     {
         case iCarouselOptionVisibleItems:
             if (carousel == _contentCarousel){
-                return 3;
+                return 5;
             }
             else if (carousel == _dayCarousel){
                 return 7;
@@ -135,6 +264,8 @@
     else if (carousel == _dayCarousel || carousel == _contentCarousel){
         self.selectedDate = [self dateForIndexOfDay:carousel.currentItemIndex];
     }
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"QHSelectedDateChanged" object:self userInfo:@{@"date":_selectedDate}];
 }
 
 #pragma mark - iCarousel Protocol
@@ -158,7 +289,7 @@
 }
 
 -(UIView*)viewForYearAtIndex:(NSInteger)index reusingView:(UIView*)view{
-    UILabel *test = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100.0f, QHDefaultYearViewHeight)];
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100.0f, QHDefaultYearViewHeight)];
     NSCalendar *calendar = [NSCalendar currentCalendar];
     NSDateComponents *dateComponents = [[NSDateComponents alloc] init];
     [dateComponents setYear:index];
@@ -168,9 +299,12 @@
     NSDateFormatter *df = [[NSDateFormatter alloc] init];
     [df setDateFormat:@"yyyy"];
     
-    test.text = [df stringFromDate:targetDate];
-    test.textAlignment = NSTextAlignmentCenter;
-    return test;
+    label.font = self.yearItemFont;
+    label.textColor = self.yearItemFontColor;
+    label.text = [df stringFromDate:targetDate];
+    label.textAlignment = NSTextAlignmentCenter;
+    label.center = self.center;
+    return label;
 }
 
 #pragma mark - Month carousel DataSource
@@ -179,7 +313,7 @@
 }
 
 -(UIView*)viewForMonthAtIndex:(NSInteger)index reusingView:(UIView*)view{
-    UILabel *test = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100.0f, QHDefaultYearViewHeight)];
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100.0f, QHDefaultYearViewHeight)];
     NSCalendar *calendar = [NSCalendar currentCalendar];
     NSDateComponents *dateComponents = [[NSDateComponents alloc] init];
     [dateComponents setMonth:index];
@@ -189,9 +323,12 @@
     NSDateFormatter *df = [[NSDateFormatter alloc] init];
     [df setDateFormat:@"MMMM"];
     
-    test.text = [df stringFromDate:targetDate];
-    test.textAlignment = NSTextAlignmentCenter;
-    return test;
+    label.font = self.monthItemFont;
+    label.textColor = self.monthItemFontColor;
+    label.text = [df stringFromDate:targetDate];
+    label.textAlignment = NSTextAlignmentCenter;
+    label.center = self.center;
+    return label;
 }
 
 #pragma mark - Day carousel DataSource
@@ -208,9 +345,30 @@
     v.date = [self dateForIndexOfDay:index];
     v.center = self.center;
     
+    v.todayBackgroundColor = self.dayItemTodayBackgroundColor;
+    v.todayBorderColor = self.dayItemTodayBorderColor;
+    v.selectedBackgroundColor = self.dayItemSelectedBackgroundColor;
+    v.selectedBorderColor = self.dayItemSelectedBorderColor;
+    v.specialBackgroundColor = self.dayItemSpecialBackgroundColor;
+    v.specialBorderColor = self.dayItemSpecialBorderColor;
+    v.nameFont = self.dayItemNameFont;
+    v.nameFontColor = self.dayItemNameFontColor;
+    v.numberFont = self.dayItemNumberFont;
+    v.numberFontColor = self.dayItemNumberFontColor;
     
-    
+    if ([self.delegate respondsToSelector:@selector(calendar:isDateSpecial:)]){
+        v.isSpecial = [self.dataSource calendar:self isDateSpecial:[self dateForIndexOfDay:index]];
+    }
     return v;
+}
+
+#pragma mark - Content carousel DataSource
+-(NSInteger)numberOfItemsInContentCarousel{
+    return [self indexOfDayForDate:_endDate];
+}
+
+-(UIView*)viewForContentAtIndex:(NSInteger)index reusingView:(UIView*)view{
+    return [self.dataSource viewForCalendar:self forDate:[self dateForIndexOfDay:index] withSuperviewFrame:_contentCarousel.contentView.frame reusingView:view];
 }
 
 
