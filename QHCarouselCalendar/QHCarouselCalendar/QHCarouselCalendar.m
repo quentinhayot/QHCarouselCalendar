@@ -285,7 +285,8 @@ NSString *const QHCarouselCalendarContentCarouselType = @"QHCarouselCalendarCont
     }
     
     [[NSNotificationCenter defaultCenter] postNotificationName:@"QHSelectedDateChanged" object:self userInfo:@{@"date":_selectedDate}];
-    [self.delegate calendar:self didChangeSelectedDate:_selectedDate];
+    if ([self.delegate respondsToSelector:@selector(calendar:didChangeSelectedDate:)])
+        [self.delegate calendar:self didChangeSelectedDate:_selectedDate];
 }
 
 #pragma mark - iCarousel Protocol
