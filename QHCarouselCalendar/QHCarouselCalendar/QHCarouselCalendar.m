@@ -82,6 +82,11 @@ NSString *const QHCarouselCalendarContentCarouselType = @"QHCarouselCalendarCont
 
 @implementation QHCarouselCalendar
 
+-(instancetype)initWithCoder:(NSCoder *)aDecoder{
+    self = [super initWithCoder:aDecoder];
+    return [self initWithFrame:self.frame];
+}
+
 -(instancetype)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
     if (self){
@@ -174,7 +179,7 @@ NSString *const QHCarouselCalendarContentCarouselType = @"QHCarouselCalendarCont
     self.dayItemNameFontColor = attributes[QHCarouselCalendarDayItemNameFontColor] ? attributes[QHCarouselCalendarDayItemNameFontColor] : [UIColor whiteColor];
     self.dayItemNumberFontColor = attributes[QHCarouselCalendarDayItemNumberFontColor] ? attributes[QHCarouselCalendarDayItemNumberFontColor] : [UIColor whiteColor];
     
-    self.contentCarouselType = attributes[QHCarouselCalendarContentCarouselType] ? (iCarouselType)attributes[QHCarouselCalendarContentCarouselType] : iCarouselTypeCoverFlow;
+    self.contentCarouselType = attributes[QHCarouselCalendarContentCarouselType] ? (iCarouselType)[attributes[QHCarouselCalendarContentCarouselType] intValue]: iCarouselTypeCoverFlow;
     _contentCarousel.type = self.contentCarouselType;
     
     [self setNeedsDisplay];
