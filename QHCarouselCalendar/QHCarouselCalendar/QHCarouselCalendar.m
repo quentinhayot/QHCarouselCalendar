@@ -196,7 +196,7 @@ NSString *const QHCarouselCalendarContentCarouselType = @"QHCarouselCalendarCont
 
 #pragma mark - iCarousel DataSource
 -(NSInteger)numberOfItemsInCarousel:(iCarousel*)carousel{
-    NSInteger items;
+    NSInteger items = 0;
     if (carousel == _yearCarousel){
         items = [self numberOfItemsInYearCarousel];
     }

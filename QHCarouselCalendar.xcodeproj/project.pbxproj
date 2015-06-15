@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		1CDC7EFB85F1503AC646E160 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FBCEA2FCB04FA06E19EC41F4 /* libPods.a */; };
 		EC4927951B2985F3007477B5 /* QHCarouselCalendar.m in Sources */ = {isa = PBXBuildFile; fileRef = EC4927941B2985F3007477B5 /* QHCarouselCalendar.m */; };
-		EC4927991B29CD75007477B5 /* QHCarouselCalendarDayView.m in Sources */ = {isa = PBXBuildFile; fileRef = EC4927981B29CD75007477B5 /* QHCarouselCalendarDayView.m */; };
+		ECA92BD41B2B31A70021DE3C /* QHCarouselCalendarDayView.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA92BD31B2B31A70021DE3C /* QHCarouselCalendarDayView.m */; };
 		ECB702CF1B2980FB006D8872 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = ECB702CE1B2980FB006D8872 /* main.m */; };
 		ECB702D21B2980FB006D8872 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = ECB702D11B2980FB006D8872 /* AppDelegate.m */; };
 		ECB702D51B2980FB006D8872 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECB702D41B2980FB006D8872 /* ViewController.m */; };
@@ -34,8 +34,8 @@
 		BE2D2EF9043852C88266AE5F /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		EC4927931B2985F3007477B5 /* QHCarouselCalendar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QHCarouselCalendar.h; path = QHCarouselCalendar/QHCarouselCalendar.h; sourceTree = "<group>"; };
 		EC4927941B2985F3007477B5 /* QHCarouselCalendar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QHCarouselCalendar.m; path = QHCarouselCalendar/QHCarouselCalendar.m; sourceTree = "<group>"; };
-		EC4927971B29CD75007477B5 /* QHCarouselCalendarDayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QHCarouselCalendarDayView.h; sourceTree = "<group>"; };
-		EC4927981B29CD75007477B5 /* QHCarouselCalendarDayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QHCarouselCalendarDayView.m; sourceTree = "<group>"; };
+		ECA92BD21B2B31A70021DE3C /* QHCarouselCalendarDayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QHCarouselCalendarDayView.h; path = QHCarouselCalendar/QHCarouselCalendarDayView.h; sourceTree = "<group>"; };
+		ECA92BD31B2B31A70021DE3C /* QHCarouselCalendarDayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QHCarouselCalendarDayView.m; path = QHCarouselCalendar/QHCarouselCalendarDayView.m; sourceTree = "<group>"; };
 		ECB702C91B2980FB006D8872 /* QHCarouselCalendar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QHCarouselCalendar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECB702CD1B2980FB006D8872 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ECB702CE1B2980FB006D8872 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -83,10 +83,10 @@
 		EC4927961B298602007477B5 /* QHCarouselCalendar */ = {
 			isa = PBXGroup;
 			children = (
+				ECA92BD21B2B31A70021DE3C /* QHCarouselCalendarDayView.h */,
+				ECA92BD31B2B31A70021DE3C /* QHCarouselCalendarDayView.m */,
 				EC4927931B2985F3007477B5 /* QHCarouselCalendar.h */,
 				EC4927941B2985F3007477B5 /* QHCarouselCalendar.m */,
-				EC4927971B29CD75007477B5 /* QHCarouselCalendarDayView.h */,
-				EC4927981B29CD75007477B5 /* QHCarouselCalendarDayView.m */,
 			);
 			name = QHCarouselCalendar;
 			sourceTree = "<group>";
@@ -299,7 +299,7 @@
 				EC4927951B2985F3007477B5 /* QHCarouselCalendar.m in Sources */,
 				ECB702D51B2980FB006D8872 /* ViewController.m in Sources */,
 				ECB702D21B2980FB006D8872 /* AppDelegate.m in Sources */,
-				EC4927991B29CD75007477B5 /* QHCarouselCalendarDayView.m in Sources */,
+				ECA92BD41B2B31A70021DE3C /* QHCarouselCalendarDayView.m in Sources */,
 				ECB702CF1B2980FB006D8872 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
