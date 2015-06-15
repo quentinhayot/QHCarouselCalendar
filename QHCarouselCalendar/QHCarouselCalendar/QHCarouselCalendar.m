@@ -9,11 +9,15 @@
 #import "QHCarouselCalendar.h"
 #import "QHCarouselCalendarDayView.h"
 
-#define QHDefaultYearViewHeight 45.0f
-#define QHDefaultMonthViewHeight 45.0f
-#define QHDefaultDayViewHeight 70.0f
+#define kQHDefaultYearViewHeight 45.0f
+#define kQHDefaultMonthViewHeight 45.0f
+#define kQHDefaultDayViewHeight 70.0f
 
 // Keys for customize the calendar behavior
+NSString *const QHCarouselCalendarYearCarouselHeight = @"QHCarouselCalendarYearCarouselHeight";
+NSString *const QHCarouselCalendarMonthCarouselHeight = @"QHCarouselCalendarMonthCarouselHeight";
+NSString *const QHCarouselCalendarDayCarouselHeight = @"QHCarouselCalendarDayCarouselHeight";
+
 //   Background colors
 ////   Carousels
 NSString *const QHCarouselCalendarYearCarouselBackgroundColor = @"QHCarouselCalendarYearCarouselBackgroundColor";
@@ -47,6 +51,9 @@ NSString *const QHCarouselCalendarContentCarouselType = @"QHCarouselCalendarCont
 
 @interface QHCarouselCalendar() <iCarouselDelegate, iCarouselDataSource>
 // Keys for customize the calendar behavior
+@property (nonatomic) float yearCarouselHeight;
+@property (nonatomic) float monthCarouselHeight;
+@property (nonatomic) float dayCarouselHeight;
 //   Background colors
 ////   Carousels
 @property (nonatomic, strong) UIColor *yearCarouselBackgroundColor;
@@ -90,31 +97,34 @@ NSString *const QHCarouselCalendarContentCarouselType = @"QHCarouselCalendarCont
 -(instancetype)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
     if (self){
+        
+        [self applyCustomDefaults];
         _startDate = [self firstPossibleDate];
         _endDate = [self lastPossibleDate];
         
-        _yearCarousel = [[iCarousel alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, QHDefaultYearViewHeight)];
+        _yearCarousel = [[iCarousel alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.yearCarouselHeight)];
         _yearCarousel.delegate = self;
         _yearCarousel.dataSource = self;
         [self addSubview:_yearCarousel];
         
-        _monthCarousel = [[iCarousel alloc] initWithFrame:CGRectMake(0, QHDefaultYearViewHeight, self.frame.size.width, QHDefaultMonthViewHeight)];
+        _monthCarousel = [[iCarousel alloc] initWithFrame:CGRectMake(0, self.yearCarouselHeight, self.frame.size.width, self.monthCarouselHeight)];
         _monthCarousel.delegate = self;
         _monthCarousel.dataSource = self;
         [self addSubview:_monthCarousel];
         
-        _dayCarousel = [[iCarousel alloc] initWithFrame:CGRectMake(0, QHDefaultYearViewHeight+QHDefaultMonthViewHeight, self.frame.size.width, QHDefaultDayViewHeight)];
+        _dayCarousel = [[iCarousel alloc] initWithFrame:CGRectMake(0, self.yearCarouselHeight+self.monthCarouselHeight, self.frame.size.width, self.dayCarouselHeight)];
         _dayCarousel.delegate = self;
         _dayCarousel.dataSource = self;
         [self addSubview:_dayCarousel];
         
-        _contentCarousel = [[iCarousel alloc] initWithFrame:CGRectMake(0, QHDefaultYearViewHeight+QHDefaultMonthViewHeight+QHDefaultDayViewHeight, self.frame.size.width, self.frame.size.height-(QHDefaultYearViewHeight+QHDefaultMonthViewHeight+QHDefaultDayViewHeight))];
+        _contentCarousel = [[iCarousel alloc] initWithFrame:CGRectMake(0, self.yearCarouselHeight+self.monthCarouselHeight+self.dayCarouselHeight, self.frame.size.width, self.frame.size.height-(self.yearCarouselHeight+self.monthCarouselHeight+self.dayCarouselHeight))];
         _contentCarousel.delegate = self;
         _contentCarousel.dataSource = self;
         _contentCarousel.clipsToBounds = YES;
         [self addSubview:_contentCarousel];
         
         self.selectedDate = [NSDate date];
+        
         [self applyCustomDefaults];
     }
     return self;
@@ -152,9 +162,13 @@ NSString *const QHCarouselCalendarContentCarouselType = @"QHCarouselCalendarCont
 {
     NSDictionary *attributes;
     
-    if ([self.delegate respondsToSelector:@selector(QHCarouselCalendarAttributes)]) {
-        attributes = [self.delegate QHCarouselCalendarAttributes];
+    if ([self.delegate respondsToSelector:@selector(QHCarouselCalendarAttributesForCalendar:)]) {
+        attributes = [self.delegate QHCarouselCalendarAttributesForCalendar:self];
     }
+    
+    self.yearCarouselHeight = attributes[QHCarouselCalendarYearCarouselHeight] ? [attributes[QHCarouselCalendarYearCarouselHeight] floatValue] : kQHDefaultYearViewHeight;
+    self.monthCarouselHeight = attributes[QHCarouselCalendarMonthCarouselHeight] ? [attributes[QHCarouselCalendarMonthCarouselHeight] floatValue] : kQHDefaultMonthViewHeight;
+    self.dayCarouselHeight = attributes[QHCarouselCalendarDayCarouselHeight] ? [attributes[QHCarouselCalendarDayCarouselHeight] floatValue] : kQHDefaultDayViewHeight;
     
     self.yearCarouselBackgroundColor = attributes[QHCarouselCalendarYearCarouselBackgroundColor] ? attributes[QHCarouselCalendarYearCarouselBackgroundColor] : [UIColor blackColor];
     self.monthCarouselBackgroundColor = attributes[QHCarouselCalendarMonthCarouselBackgroundColor] ? attributes[QHCarouselCalendarMonthCarouselBackgroundColor] : [UIColor darkGrayColor];
@@ -271,6 +285,7 @@ NSString *const QHCarouselCalendarContentCarouselType = @"QHCarouselCalendarCont
     }
     
     [[NSNotificationCenter defaultCenter] postNotificationName:@"QHSelectedDateChanged" object:self userInfo:@{@"date":_selectedDate}];
+    [self.delegate calendar:self didChangeSelectedDate:_selectedDate];
 }
 
 #pragma mark - iCarousel Protocol
@@ -294,7 +309,7 @@ NSString *const QHCarouselCalendarContentCarouselType = @"QHCarouselCalendarCont
 }
 
 -(UIView*)viewForYearAtIndex:(NSInteger)index reusingView:(UIView*)view{
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100.0f, QHDefaultYearViewHeight)];
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100.0f, self.yearCarouselHeight)];
     NSCalendar *calendar = [NSCalendar currentCalendar];
     NSDateComponents *dateComponents = [[NSDateComponents alloc] init];
     [dateComponents setYear:index];
@@ -318,7 +333,7 @@ NSString *const QHCarouselCalendarContentCarouselType = @"QHCarouselCalendarCont
 }
 
 -(UIView*)viewForMonthAtIndex:(NSInteger)index reusingView:(UIView*)view{
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100.0f, QHDefaultYearViewHeight)];
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100.0f, self.monthCarouselHeight)];
     NSCalendar *calendar = [NSCalendar currentCalendar];
     NSDateComponents *dateComponents = [[NSDateComponents alloc] init];
     [dateComponents setMonth:index];

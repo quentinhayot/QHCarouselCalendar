@@ -39,6 +39,11 @@
 
 @protocol QHCarouselCalendarDelegate <NSObject>
 // Keys for customize the calendar behavior
+//   Heights
+extern NSString *const QHCarouselCalendarYearCarouselHeight;
+extern NSString *const QHCarouselCalendarMonthCarouselHeight;
+extern NSString *const QHCarouselCalendarDayCarouselHeight;
+
 //   Background colors
 ////   Carousels
 extern NSString *const QHCarouselCalendarYearCarouselBackgroundColor;
@@ -71,6 +76,7 @@ extern NSString *const QHCarouselCalendarDayItemNumberFontColor;
 extern NSString *const QHCarouselCalendarContentCarouselType;
 
 @optional
--(NSDictionary *)QHCarouselCalendarAttributes;       //Optional Function, Set the calendar behavior attributes by using above keys
+-(void)calendar:(QHCarouselCalendar*)calendar didChangeSelectedDate:(NSDate*)date;
+-(NSDictionary *)QHCarouselCalendarAttributesForCalendar:(QHCarouselCalendar*)calendar;       //Optional Function, Set the calendar behavior attributes by using above keys
 
 @end
