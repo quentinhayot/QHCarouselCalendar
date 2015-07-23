@@ -135,7 +135,7 @@ The font used for the Days numbers
 ##### Carousel type
 ###### (iCarouselType) QHCarouselCalendarContentCarouselType
 The type of the Carousel for the Content part of the calendar.  
-Please refer to [iCarousel's documentation](https://github.com/nicklockwood/iCarousel#carousel-types) for the possible types.
+Please refer to [iCarousel's documentation](https://github.com/nicklockwood/iCarousel#carousel-types) for the possible types.  
 KNOWN ISSUE: Some carousel types can behave strangely with this calendar.
 
 ## Credits
