@@ -14,11 +14,6 @@ Run a `pod install` and import the header where you need it:
 ```objective-c
 #import <QHCarouselCalendar.h>
 ```
-### Manually
-Drop QHCarouselCalendar.h and QHCarouselCalendar.m in your project, then  
-```objective-c
-#import "QHCarouselCalendar.h"
-```
 
 ##Usage
 #### Initialization
