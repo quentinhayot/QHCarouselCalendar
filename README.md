@@ -1,6 +1,6 @@
 # QHCarouselCalendar
 [![Build Status](https://travis-ci.org/quentinhayot/QHCarouselCalendar.svg?branch=master)](https://travis-ci.org/quentinhayot/QHCarouselCalendar)  
-A cool calendar based on iCarousel.  
+A cool calendar based on [Nick Lockwood](https://github.com/nicklockwood)'s [iCarousel](https://github.com/nicklockwood/iCarousel).
 
 <img src="https://raw.github.com/quentinhayot/QHCarouselCalendar/master/Images/screenshot1.png" alt="QHCarouselCalendar" width="300px">
 
