@@ -252,9 +252,6 @@ NSString *const QHCarouselCalendarContentCarouselType = @"QHCarouselCalendarCont
             if (carousel == _contentCarousel){
                 return 5;
             }
-            else if (carousel == _dayCarousel){
-                return 7;
-            }
         default:
         {
             return value;
