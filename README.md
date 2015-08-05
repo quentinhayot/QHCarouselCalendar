@@ -28,7 +28,7 @@ Run a `pod install` and import the header where you need it:
 ```
 ##### YourViewController.m
 ```objective-c
-self.calendar = [[QHCarouselCalendar alloc] initWithFrame:someFrame]; // someFrame is the frame that you want to give to your calendar. Most likely self.view.frame
+    self.calendar = [[QHCarouselCalendar alloc] initWithFrame:someFrame]; // someFrame is the frame that you want to give to your calendar. Most likely self.view.frame
     self.calendar.dataSource = self;
     [self.view addSubview:self.calendar];
 ```
