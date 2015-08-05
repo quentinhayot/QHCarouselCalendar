@@ -20,7 +20,7 @@ Run a `pod install` and import the header where you need it:
 ##### YourViewController.h
 ```objective-c
 #import <UIKit/UIKit.h>
-#import "QHCarouselCalendar.h"
+#import <QHCarouselCalendar.h>
 
 @interface YourViewController : UIViewController <QHCarouselCalendarDataSource, QHCarouselCalendarDelegate>
 @property (strong, nonatomic)QHCarouselCalendar *calendar;
