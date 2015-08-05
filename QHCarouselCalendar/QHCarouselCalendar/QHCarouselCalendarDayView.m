@@ -7,7 +7,7 @@
 //
 
 #import "QHCarouselCalendarDayView.h"
-#import <UIView+Rounded.h>
+#import <UIView+Rounded/UIView+Rounded.h>
 
 @implementation QHCarouselCalendarDayView
 

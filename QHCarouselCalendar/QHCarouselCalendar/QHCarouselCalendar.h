@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <iCarousel.h>
+#import <iCarousel/iCarousel.h>
 
 @protocol QHCarouselCalendarDataSource;
 @protocol QHCarouselCalendarDelegate;
