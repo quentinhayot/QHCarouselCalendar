@@ -21,19 +21,19 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		4B975ECE1A7D428E345F5065CF199F17 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 9494390523250106847516AB47E5F9FF;
-			remoteInfo = iCarousel;
-		};
-		77C394755E5CC560A3DC9298EE67D691 /* PBXContainerItemProxy */ = {
+		49F49D3CE0C9001FAB3CE0E18C4160C2 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 961CC3E0791EB62C34C56ECDA9FA09D3;
 			remoteInfo = "UIView+Rounded";
+		};
+		C6D72F90830D097DD885DD76D4389CB2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9494390523250106847516AB47E5F9FF;
+			remoteInfo = iCarousel;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -238,8 +238,8 @@
 			buildRules = (
 			);
 			dependencies = (
-				B8E05D4FA9BC5A38C2F894E4A65874A6 /* PBXTargetDependency */,
-				88CC09CA1ACA5F5FBF094CA2727C0032 /* PBXTargetDependency */,
+				CA37D6F415BBFAC319DD2A93B32B289A /* PBXTargetDependency */,
+				5A187FF48C921836D95F517444BC1CDA /* PBXTargetDependency */,
 			);
 			name = Pods;
 			productName = Pods;
@@ -338,17 +338,17 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		88CC09CA1ACA5F5FBF094CA2727C0032 /* PBXTargetDependency */ = {
+		5A187FF48C921836D95F517444BC1CDA /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = iCarousel;
 			target = 9494390523250106847516AB47E5F9FF /* iCarousel */;
-			targetProxy = 4B975ECE1A7D428E345F5065CF199F17 /* PBXContainerItemProxy */;
+			targetProxy = C6D72F90830D097DD885DD76D4389CB2 /* PBXContainerItemProxy */;
 		};
-		B8E05D4FA9BC5A38C2F894E4A65874A6 /* PBXTargetDependency */ = {
+		CA37D6F415BBFAC319DD2A93B32B289A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "UIView+Rounded";
 			target = 961CC3E0791EB62C34C56ECDA9FA09D3 /* UIView+Rounded */;
-			targetProxy = 77C394755E5CC560A3DC9298EE67D691 /* PBXContainerItemProxy */;
+			targetProxy = 49F49D3CE0C9001FAB3CE0E18C4160C2 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
