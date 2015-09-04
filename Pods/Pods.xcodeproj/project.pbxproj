@@ -21,19 +21,19 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		49F49D3CE0C9001FAB3CE0E18C4160C2 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 961CC3E0791EB62C34C56ECDA9FA09D3;
-			remoteInfo = "UIView+Rounded";
-		};
-		C6D72F90830D097DD885DD76D4389CB2 /* PBXContainerItemProxy */ = {
+		4C68AD38F1EAB66C72101B9BD5E766B4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 9494390523250106847516AB47E5F9FF;
 			remoteInfo = iCarousel;
+		};
+		C8B5867481865D87162AEED7D8801E8B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 961CC3E0791EB62C34C56ECDA9FA09D3;
+			remoteInfo = "UIView+Rounded";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -238,8 +238,8 @@
 			buildRules = (
 			);
 			dependencies = (
-				CA37D6F415BBFAC319DD2A93B32B289A /* PBXTargetDependency */,
-				5A187FF48C921836D95F517444BC1CDA /* PBXTargetDependency */,
+				51E0771D7DC5A546EB1BEF797348DF5A /* PBXTargetDependency */,
+				D2A38ED85E030C4A09CAA7EC08CF30C7 /* PBXTargetDependency */,
 			);
 			name = Pods;
 			productName = Pods;
@@ -338,17 +338,17 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		5A187FF48C921836D95F517444BC1CDA /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = iCarousel;
-			target = 9494390523250106847516AB47E5F9FF /* iCarousel */;
-			targetProxy = C6D72F90830D097DD885DD76D4389CB2 /* PBXContainerItemProxy */;
-		};
-		CA37D6F415BBFAC319DD2A93B32B289A /* PBXTargetDependency */ = {
+		51E0771D7DC5A546EB1BEF797348DF5A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "UIView+Rounded";
 			target = 961CC3E0791EB62C34C56ECDA9FA09D3 /* UIView+Rounded */;
-			targetProxy = 49F49D3CE0C9001FAB3CE0E18C4160C2 /* PBXContainerItemProxy */;
+			targetProxy = C8B5867481865D87162AEED7D8801E8B /* PBXContainerItemProxy */;
+		};
+		D2A38ED85E030C4A09CAA7EC08CF30C7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = iCarousel;
+			target = 9494390523250106847516AB47E5F9FF /* iCarousel */;
+			targetProxy = 4C68AD38F1EAB66C72101B9BD5E766B4 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

@@ -1,13 +1,13 @@
 PODS:
-  - iCarousel (1.8.1)
+  - iCarousel (1.8.2)
   - UIView+Rounded (0.1.4)
 
 DEPENDENCIES:
-  - iCarousel (= 1.8.1)
-  - UIView+Rounded (= 0.1.4)
+  - iCarousel (~> 1.8.1)
+  - UIView+Rounded (~> 0.1.4)
 
 SPEC CHECKSUMS:
-  iCarousel: dace1cb858e3f4dc2614bee3201041247f82feda
+  iCarousel: 67c8a43da5a46795b56aadfc96cd36a16f6149b2
   UIView+Rounded: 3cce1316497852acbb4e2650eac518f216229316
 
 COCOAPODS: 0.38.2
